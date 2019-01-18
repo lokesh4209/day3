@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Event example</title>
+	<style>
+		div{
+						margin: 200px 200px 200px 200px;
+		}
+	</style>
+	<script>
+		
+		var intervalVal;
+		function init()
+		{
+			
+			document.addEventListener('keyup',displaymsg);
+		}
+		function displaymsg(event)
+		{
+			var ref =  document.getElementById("clickme");
+			if(event.keyCode==38)
+			{
+					ref.style.margin="100px 200px 0px 200px";
+			}
+			else if(event.keyCode==39)
+			{
+				ref.style.margin="200px 300px 200px 300px";	
+			} 
+			else if(event.keyCode==40)
+			{
+				ref.style.margin="300px 300px 0px 200px";	
+			}
+			else if(event.keyCode==37)
+			{
+				ref.style.margin="200px 0px 200px 50px";
+			}
+			else if(event.keyCode==82)
+			{
+					rot(0);
+			}
+			else if(event.keyCode==83)
+			{
+				rot(1);
+			}			
+
+		}
+		function rot(n){
+		var ref = document.getElementById("clickme");
+		var x = 10;
+		var y = 10;
+		var ang = 10;
+		if(n==1)
+		{	
+
+			clearInterval(intervalVal);
+		
+		
+	    }
+	    else{
+		intervalVal = setInterval(function(){
+			x=x+10;
+			y=y+10;
+			ang=ang+20;
+			ref.style = "transform : translate("+x+'px'+','+y+'px):transform : rotate("+angle+"deg)';
+			ref.style="transform:rotate("+ang+"deg)";
+		},300)
+		
+	    } 
+	
+		}
+		
+	</script>
+</head>
+<body onload="init()">
+
+	<div id="clickme">
+		
+	<img src="sa.jpg" id="l">
+	</div>
+</body>
+</html>
